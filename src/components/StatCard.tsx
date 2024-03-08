@@ -11,7 +11,7 @@ const StatCard = ({ value, text, bgColor, fgColor }: StatCardProps) => {
   return (
     <div className="flex flex-col justify-center items-center m-2">
       <div 
-        className="flex size-44 justify-center items-center rounded-full text-6xl"
+        className="flex flex-grow aspect-square self-stretch justify-center items-center rounded-full text-5xl"
         style={{
           backgroundColor: bgColor ?? '#FDD60F',
           color: fgColor ?? '#333'

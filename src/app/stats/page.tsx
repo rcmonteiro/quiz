@@ -26,7 +26,7 @@ const Stats = () => {
         </>
       ) : (
         <>
-          <div className="flex flex-row mb-4">
+          <div className="grid grid-cols-3 mb-4">
             <StatCard text="Perguntas" value={total} bgColor="#3A758C" fgColor="#FFF" />
             <StatCard text="Certas" value={hits} bgColor="#F29F05" fgColor="#FFF" />
             <StatCard text="Resultado" value={`${score}%`} bgColor="#F2E0D5" fgColor="#0D0D0D" />

@@ -10,8 +10,8 @@ const Page = () => {
       <AcademicCapIcon color='#F29F05' width={96} height={96} />
       <h1 className='mt-4 text-4xl font-bold'>Desafio do milhao</h1>
       <div className='flex flex-col justify-center items-center mt-4'>
-        <p>Responda 15 perguntas de conhecimentos gerais</p>
-        <p>Consegue chegar em 100% de acerto?</p>
+        <p className='text-center'>Responda 15 perguntas de conhecimentos gerais</p>
+        <p className='text-center'>Consegue chegar em 100% de acerto?</p>
       </div>
       <Button href="/game" label="Iniciar" bgColor="#F25D27" />
     </div>    
