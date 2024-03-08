@@ -33,7 +33,7 @@ const Stats = () => {
           </div>
                   
           <WhatsappShareButton
-            url={'https://desafiodomilhao.vercel.app'}
+            url={'https://domilhao.com'}
             title={`Eu consegui acertar *${score}%* do *Desafio do Milhão*, consegue fazer melhor?`}
             separator=" 👉 "
 
