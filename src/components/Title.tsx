@@ -5,8 +5,8 @@ interface TitleProps {
 const Title = ({ text }: TitleProps) => {
 
   return (
-    <div className="flex h-24">
-      <span className="text-2xl font-bold text-center">{text}</span>
+    <div className="flex h-16">
+      <span className="text-xl font-bold text-center">{text}</span>
     </div>
   )
 }

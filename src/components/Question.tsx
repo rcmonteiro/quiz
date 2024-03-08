@@ -4,10 +4,10 @@ import Answer from "./Answer";
 import Timer from "./Timer";
 
 const letters = [
-  { value: 'A', color: '#F2C866' },
-  { value: 'B', color: '#F266BA' },
-  { value: 'C', color: '#85D4F2' },
-  { value: 'D', color: '#BCE596' }
+  { value: 'A', color: '#049DD9' },
+  { value: 'B', color: '#14A647' },
+  { value: 'C', color: '#F2C84B' },
+  { value: 'D', color: '#F24E29' }
 ]
 
 interface QuestionProps {
@@ -32,7 +32,7 @@ const Question = ({ value, timeToRespond = 10, onResponse, onTimeOut }: Question
     })
   }
   return (
-    <div className="flex flex-col items-center w-96">
+    <div className="flex flex-col items-center">
       <QuestionTitle text={question.title} />
       <Timer id={question.id} duration={timeToRespond} onTimeOut={onTimeOut}/>
       {render()}

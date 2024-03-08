@@ -14,7 +14,7 @@ const Timer = ({ id, duration, onTimeOut }: TimerProps) => {
         key={id}
         duration={duration}
         size={110} 
-        colors={['#BCE596', '#F7B801', '#ED827A', '#ED827A']}
+        colors={['#0FA650', '#F2B705', '#F24822', '#F24822']}
         colorsTime={[duration, duration/3*2, duration/3, 0]}
         isPlaying
         onComplete={onTimeOut}

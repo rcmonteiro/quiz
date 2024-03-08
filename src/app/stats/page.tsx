@@ -17,7 +17,7 @@ const Stats = () => {
 
   return (
     <div className="flex flex-col h-screen justify-center items-center">
-      <h1 className="text-4xl font-bold mb-4">Resultado Final</h1>
+      <h1 className="text-4xl font-bold mb-8">Resultado Final</h1>
 
       { (hits === 0) ? (
         <>
@@ -26,27 +26,28 @@ const Stats = () => {
         </>
       ) : (
         <>
-          <div className="grid grid-cols-3 mb-4">
-            <StatCard text="Perguntas" value={total} bgColor="#3A758C" fgColor="#FFF" />
-            <StatCard text="Certas" value={hits} bgColor="#F29F05" fgColor="#FFF" />
-            <StatCard text="Resultado" value={`${score}%`} bgColor="#F2E0D5" fgColor="#0D0D0D" />
+          <div className="flex mb-8">
+            {/* <StatCard text="Perguntas" value={total} bgColor="#3A758C" fgColor="#FFF" />
+            <StatCard text="Certas" value={hits} bgColor="#95F257" fgColor="#333" /> */}
+            <StatCard text="Resultado" value={`${score}%`} bgColor="#F2EE57" fgColor="#000" />
           </div>
                   
           <WhatsappShareButton
-            url={'desafiodomilhao.vercel.app'}
-            title={`Eu consegui acertar ${hits} do Desafio do Milhão, consegue fazer melhor?`}
-            separator=":: "
+            url={'https://desafiodomilhao.vercel.app'}
+            title={`Eu consegui acertar *${score}%* do *Desafio do Milhão*, consegue fazer melhor?`}
+            separator=" 👉 "
+
           >
-            <div className="flex flex-row justify-center items-center">
+            <div className="flex flex-row justify-center pl-2 pr-4 py-1 rounded-lg items-stretch hover:scale-110 ease-in-out duration-300" style={{backgroundColor:'#25D366'}}>
               <WhatsappIcon size={32} round />
               
-              <div className="flex ml-2">
+              <div className="flex pl-2 flex-grow text-xl items-center">
                 Compartilhe seu resultado!
               </div>
             </div>
           </WhatsappShareButton>
           
-          <Button href="/game" label="Tentar novamente" bgColor="#F25D27" />
+          <Button href="/game" label="Tentar novamente" bgColor="#9857F2" />
         </>
       )
     }

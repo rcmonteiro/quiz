@@ -11,7 +11,7 @@ const Button = ({ label, href, bgColor = '#F23030', onClick }: ButtonProps) => {
 
   const render = () => (
     <button 
-      className="text-white rounded-lg text-xl border-none py-2 px-4 mt-10 cursor-pointer hover:scale-110 ease-in-out duration-300"
+      className="text-white flex-grow-0 rounded-lg text-xl border-none py-2 px-6 mt-6 cursor-pointer hover:scale-110 ease-in-out duration-300"
       style={{backgroundColor: bgColor}}
       onClick={onClick}
     >

@@ -13,7 +13,7 @@ const Answer = ({ value, index, letter, letterBg = '#ccc', onResponse }: AnswerP
   const answer = value
   // const unveiledAnswer = answer.unveiled ?
   return (
-    <div className="flex h-20 m-2 self-stretch perspective-1000" onClick={() => onResponse(index)}>
+    <div className="flex h-16 m-2 self-stretch perspective-1000" onClick={() => onResponse(index)}>
       <div className={
         clsx(
           'flex flex-1 relative preserve-3d transition-transform duration-700',
@@ -34,20 +34,20 @@ const Answer = ({ value, index, letter, letterBg = '#ccc', onResponse }: AnswerP
       
         <div className="flex h-full w-full absolute backface-hidden rotateY-180">
           {answer.correct ? (
-            <div className="flex flex-1 flex-col justify-center items-center bg-green-500 rounded-2xl">
+            <div className="flex flex-1 flex-col justify-center items-center rounded-2xl" style={{backgroundColor:'#0FA650'}}>
               <div className="">
                 A resposta certa é...
               </div>
-              <div className="font-bold text-2xl">
+              <div className="font-bold text-xl">
                 {answer.value}
               </div>
             </div>
           ) : (
-            <div className="flex flex-1 flex-col justify-center items-center bg-red-500 rounded-2xl">
+            <div className="flex flex-1 flex-col justify-center items-center rounded-2xl" style={{backgroundColor:'#F24822'}}>
               <div className="">
                 A resposta informada está errada...
               </div>
-              <div className="font-bold text-2xl">
+              <div className="font-bold text-xl">
                 {answer.value}
               </div>
             </div>
