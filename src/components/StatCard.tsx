@@ -1,12 +1,12 @@
 interface StatCardProps {
   value: any
-  text: string
   bgColor?: string
   fgColor?: string
+  text?: string
 }
 
 
-const StatCard = ({ value, text, bgColor, fgColor }: StatCardProps) => {
+const StatCard = ({ value, bgColor, fgColor }: StatCardProps) => {
 
   return (
     <div 
