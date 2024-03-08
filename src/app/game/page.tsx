@@ -50,7 +50,8 @@ const Page = () => {
   }
 
   const openStats = () => {
-    router.push(`/stats?total=${questionIds.length}&hits=${hits}`)
+    localStorage.setItem('quiz',`${hits}`)
+    router.push(`/stats`)
   }
 
   const answeredQuestion = (question: QuestionModel) => {

@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server"
-import questions from "../../questionDb"
 import { error } from "@/utils/apiCore"
 import { shuffle } from "@/utils/common"
 import { PrismaClient } from "@prisma/client";
