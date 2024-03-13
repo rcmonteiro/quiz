@@ -14,7 +14,7 @@ async function main() {
       }
     })
     question.answers.map(async (answer,index) => {
-      const newAnswer = await prisma.answer.create({
+      await prisma.answer.create({
         data: {
           questionId: newQuestion.id,
           value: answer,

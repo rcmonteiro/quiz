@@ -59,6 +59,13 @@ class QuestionModel {
     return new QuestionModel(json.id, json.title, answers, json.correct)
   }
 
+  static fromLocalDb(json: any): any {
+    const answers = json.answers.map((answer: any, i: number) => 
+      AnswerModel.fromLocalDb(answer, ((i+1) === json.correct) ? true : false)
+    )
+    return new QuestionModel(json.num, json.title, answers, false)
+  }
+
   public shuffleAnswers(): QuestionModel {
     let shuffledAnswers = shuffle(this._answers)
     return new QuestionModel(this._id, this._title, shuffledAnswers, this._correct)
@@ -72,7 +79,6 @@ class QuestionModel {
         return answer.unveil()
       return answer
     })
-    console.log(correct)
     return new QuestionModel(this._id, this.title, answers, correct)
   }
 

@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server"
 import { error } from "@/utils/apiCore"
 import { shuffle } from "@/utils/common"
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
+import questions from '../../../../../prisma/questions'
+import QuestionModel from "@/model/question";
 
-const prisma = new PrismaClient()
+// const prisma = new PrismaClient()
 
 // Retorna uma questão a partir de um ID
 const get = async (id: number) => {
@@ -19,15 +21,23 @@ const get = async (id: number) => {
   // ----------------------------------------------
   //     Database version
   // ----------------------------------------------
-  const question = await prisma.question.findUnique({ 
-    where: { id },
-    select: {
-      id: true,
-      title: true,
-      answers: true 
-    }
-  })
+  // const question = await prisma.question.findUnique({ 
+  //   where: { id },
+  //   select: {
+  //     id: true,
+  //     title: true,
+  //     answers: true 
+  //   }
+  // })
 
+  // ----------------------------------------------
+  //     Local questions Full database (300)
+  // ----------------------------------------------
+  const data = questions.filter(question => question.num === id)
+  if (data.length === 0) 
+    return error('Question not Found', 404)
+  const requestedQuestion = QuestionModel.fromLocalDb(data[0])
+  const question = requestedQuestion.shuffleAnswers().toObject()
   return NextResponse.json(question, { status: 200 })
 }
 
@@ -42,24 +52,41 @@ const list = async () => {
   // ----------------------------------------------
   //     Database version
   // ----------------------------------------------
-  let questionIds:number[] = []
+  // let questionIds:number[] = []
   
+  // const getIdsBydifficulty = async (difficulty: string) => {
+  //   let data = await prisma.question.findMany({ 
+  //     where: { difficulty: difficulty },
+  //     select: {
+  //       id: true
+  //     }
+  //   })
+  //   data = shuffle(data)
+  //   data = data.slice(0,5)
+  //   data.map(item => questionIds.push(item.id))
+  // }
+
+  // await getIdsBydifficulty('easy')
+  // await getIdsBydifficulty('medium')
+  // await getIdsBydifficulty('hard')
+  
+
+  // ----------------------------------------------
+  //     Local questions Full database (300)
+  // ----------------------------------------------
+  let questionIds:number[] = []
+
   const getIdsBydifficulty = async (difficulty: string) => {
-    let data = await prisma.question.findMany({ 
-      where: { difficulty: difficulty },
-      select: {
-        id: true
-      }
-    })
+    let data = questions.filter(question => question.level === difficulty)
     data = shuffle(data)
     data = data.slice(0,5)
-    data.map(item => questionIds.push(item.id))
+    data.map(item => questionIds.push(item.num))
   }
-
+  
   await getIdsBydifficulty('easy')
   await getIdsBydifficulty('medium')
   await getIdsBydifficulty('hard')
-  
+
   return NextResponse.json(questionIds, { status: 200 })
 }
 

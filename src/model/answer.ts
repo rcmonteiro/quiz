@@ -46,6 +46,10 @@ class AnswerModel {
     return new AnswerModel(json.value, json.correct, json?.unveiled ?? false)
   }
 
+  static fromLocalDb(value: string, correct: boolean): AnswerModel {
+    return new AnswerModel(value, correct, false)
+  }
+
   public unveil() {
     return new AnswerModel(this._value, this.correct, true)
   }
