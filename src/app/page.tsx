@@ -8,7 +8,7 @@ const Page = () => {
   return (
     <div className="flex flex-col h-screen justify-center items-center">
       <AcademicCapIcon color='#F29F05' width={96} height={96} />
-      <h1 className='mt-4 text-4xl font-bold'>Desafio do milhao</h1>
+      <h1 className='mt-4 text-4xl font-bold'>Desafio do milhão</h1>
       <div className='flex flex-col justify-center items-center mt-4'>
         <p className='text-center'>Responda 15 perguntas de conhecimentos gerais</p>
         <p className='text-center'>Consegue chegar em 100% de acerto?</p>

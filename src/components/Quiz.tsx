@@ -17,8 +17,8 @@ const Quiz = ({ question, isLast, answeredQuestion, goToNextStep } : QuizProps) 
   }
 
   const onTimeOut = () => {
-    if (!question.answered)
-      answeredQuestion(question.answerQuestion(-1))
+    // if (!question.answered)
+    //   answeredQuestion(question.answerQuestion(-1))
   }
 
   return (

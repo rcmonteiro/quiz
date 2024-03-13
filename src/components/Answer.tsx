@@ -13,7 +13,7 @@ const Answer = ({ value, index, letter, letterBg = '#ccc', onResponse }: AnswerP
   const answer = value
   // const unveiledAnswer = answer.unveiled ?
   return (
-    <div className="flex h-16 m-2 self-stretch perspective-1000" onClick={() => onResponse(index)}>
+    <div className="flex h-16 m-2 flex-grow self-stretch perspective-1000" onClick={() => onResponse(index)}>
       <div className={
         clsx(
           'flex flex-1 relative preserve-3d transition-transform duration-700',

@@ -4,6 +4,7 @@ import Quiz from "@/components/Quiz";
 import QuizSkeleton from "@/components/Quiz.skeleton";
 import QuestionModel from "@/model/question";
 import { API_URL } from "@/utils/constants";
+import { sendGTMEvent } from "@next/third-parties/google";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -51,12 +52,20 @@ const Page = () => {
 
   const openStats = () => {
     localStorage.setItem('quiz',`${hits}`)
+    sendGTMEvent({
+      event: 'score',
+      value: hits/15
+    })
     router.push(`/stats`)
   }
 
   const answeredQuestion = (question: QuestionModel) => {
     const hit = question.correct
     if (hit) setHits(++hits)
+    sendGTMEvent({
+      event: 'answer',
+      value: hit
+    })
     setQuestion(question)
   }
 
