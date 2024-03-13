@@ -907,7 +907,7 @@ const questions = [
     answers: [
       '26 DE DEZEMBRO',
       '7 DE SETEMBRO',
-      'DE ABRIL',
+      '1 DE ABRIL',
       '15 DE NOVEMBRO',
     ]
   },
